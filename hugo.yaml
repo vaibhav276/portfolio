@@ -2,6 +2,8 @@ baseURL: https://example.org/
 languageCode: en-us
 title: Home
 theme: hugo-papermod
+
+# Theme specific settings. More details: https://adityatelange.github.io/hugo-PaperMod/
 params:
   profileMode:
     enabled: true
