@@ -1,0 +1,43 @@
+baseURL: https://example.org/
+languageCode: en-us
+title: Home
+theme: hugo-papermod
+params:
+  profileMode:
+    enabled: true
+    title: Vaibhav Pujari
+    subtitle: This is subtitle
+    imageUrl: "<image link>" # optional
+    imageTitle: "<title of image as alt>" # optional
+    imageWidth: 120 # custom size
+    imageHeight: 120 # custom size
+    buttons:
+      - name: Blog
+        url: /blog
+      - name: Projects
+        url: /projects
+  socialIcons: # optional
+    - name: "<platform>"
+      url: "<link>"
+    - name: "<platform 2>"
+      url: "<link2>"
+  ShowBreadCrumbs: true
+menu:
+  main:
+    - identifier: blog
+      name: Blog
+      url: /blog/
+      weight: 10
+    - identifier: projects
+      name: Projects
+      url: /projects/
+      weight: 20
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 30
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
