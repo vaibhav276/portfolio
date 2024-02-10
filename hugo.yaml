@@ -1,45 +1,79 @@
 baseURL: https://example.org/
 languageCode: en-us
 title: Home
-theme: hugo-papermod
+theme: creative-portfolio
 
-# Theme specific settings. More details: https://adityatelange.github.io/hugo-PaperMod/
+# Creative portfolio theme specific settings
+# Enable comments by entering your Disqus shortname
+# disqusShortname: ""
+# Enable Google Analytics by entering your tracking code
+# googleAnalytics: ""
 params:
-  profileMode:
-    enabled: true
-    title: Vaibhav Pujari
-    subtitle: This is subtitle
-    imageUrl: "<image link>" # optional
-    imageTitle: "<title of image as alt>" # optional
-    imageWidth: 120 # custom size
-    imageHeight: 120 # custom size
-    buttons:
-      - name: Blog
-        url: /blog
-      - name: Projects
-        url: /projects
-  socialIcons: # optional
-    - name: "<platform>"
-      url: "<link>"
-    - name: "<platform 2>"
-      url: "<link2>"
-  ShowBreadCrumbs: true
-menu:
-  main:
-    - identifier: blog
-      name: Blog
-      url: /blog/
-      weight: 10
-    - identifier: projects
-      name: Projects
-      url: /projects/
-      weight: 20
-    - identifier: search
-      name: Search
-      url: /search/
-      weight: 30
-outputs:
-  home:
-    - HTML
-    - RSS
-    - JSON # necessary for search
+  style: violet
+  description: My creative portfolio
+  copyright: '&copy;2024 Vaibhav Pujari'
+  sidebarAbout: 
+    - I like simplifying data and ideas to people
+  email: 276vaibhav@gmail.com
+  navlinks:
+    - name: Home
+      url: /home
+      home: true
+    - name: Projects
+      url: /projects
+    - name: Blog
+      url: /blog
+  breadcrumbs: true  
+  # social:
+  #   facebook: full page or profile url in facebook
+  #   googleplus: full profile url in googleplus
+  #   email: email@example.com
+  #   twitter: full profile url in twitter
+  #   linkedin: full profile url in linkedin
+  #   stackoverflow: full profile url in stackoverflow
+  #   instagram: full profile url in instagram
+  #   github: full profile url in github
+  #   gitlab: full profile url in gitlab
+  #   youtube: full profile url in youtube
+  #   whatsapp: wa.me service link
+
+# Papermod Theme specific settings. More details: https://adityatelange.github.io/hugo-PaperMod/
+# params:
+#   profileMode:
+#     enabled: true
+#     title: Vaibhav Pujari
+#     subtitle: This is subtitle
+#     imageUrl: "<image link>" # optional
+#     imageTitle: "<title of image as alt>" # optional
+#     imageWidth: 120 # custom size
+#     imageHeight: 120 # custom size
+#     buttons:
+#       - name: Blog
+#         url: /blog
+#       - name: Projects
+#         url: /projects
+#   socialIcons: # optional
+#     - name: "<platform>"
+#       url: "<link>"
+#     - name: "<platform 2>"
+#       url: "<link2>"
+#   ShowBreadCrumbs: true
+# menu:
+#   main:
+#     - identifier: blog
+#       name: Blog
+#       url: /blog/
+#       weight: 10
+#     - identifier: projects
+#       name: Projects
+#       url: /projects/
+#       weight: 20
+#     - identifier: search
+#       name: Search
+#       url: /search/
+#       weight: 30
+# outputs:
+#   home:
+#     - HTML
+#     - RSS
+#     - JSON # necessary for search
