@@ -1,7 +1,12 @@
 baseURL: https://example.org/
 languageCode: en-us
-title: Home
+# Working title for the website
+title: EyeCue
 theme: creative-portfolio
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
 
 # Creative portfolio theme specific settings
 # Enable comments by entering your Disqus shortname
@@ -12,8 +17,11 @@ params:
   style: violet
   description: My creative portfolio
   copyright: '&copy;2024 Vaibhav Pujari'
+  # TODO: Work on this more after reading some data visualization theory
   sidebarAbout: 
     - I like simplifying data and ideas to people
+    - I have worked for 17 years as Software Engineer and Architect in data oriented companies and products, and found that efficiently conveying information to humans is at the heart of any successful system.
+    - With massive amounts of data collected every day, the need to draw intuition from all of it is ever more important.
   email: 276vaibhav@gmail.com
   navlinks:
     - name: Home
@@ -36,44 +44,3 @@ params:
   #   gitlab: full profile url in gitlab
   #   youtube: full profile url in youtube
   #   whatsapp: wa.me service link
-
-# Papermod Theme specific settings. More details: https://adityatelange.github.io/hugo-PaperMod/
-# params:
-#   profileMode:
-#     enabled: true
-#     title: Vaibhav Pujari
-#     subtitle: This is subtitle
-#     imageUrl: "<image link>" # optional
-#     imageTitle: "<title of image as alt>" # optional
-#     imageWidth: 120 # custom size
-#     imageHeight: 120 # custom size
-#     buttons:
-#       - name: Blog
-#         url: /blog
-#       - name: Projects
-#         url: /projects
-#   socialIcons: # optional
-#     - name: "<platform>"
-#       url: "<link>"
-#     - name: "<platform 2>"
-#       url: "<link2>"
-#   ShowBreadCrumbs: true
-# menu:
-#   main:
-#     - identifier: blog
-#       name: Blog
-#       url: /blog/
-#       weight: 10
-#     - identifier: projects
-#       name: Projects
-#       url: /projects/
-#       weight: 20
-#     - identifier: search
-#       name: Search
-#       url: /search/
-#       weight: 30
-# outputs:
-#   home:
-#     - HTML
-#     - RSS
-#     - JSON # necessary for search
