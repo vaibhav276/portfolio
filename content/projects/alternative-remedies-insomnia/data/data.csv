@@ -1,4 +1,4 @@
-remedy;problem area;source
+remedy;problem_area;source
 5-HTP;Insomnia;Medicine Plus
 5-HTP;Insomnia;Natural Medicines
 5-HTP;Insomnia;PDR
@@ -74,3 +74,56 @@ Cypress;Misc;Natural Medicines
 Cypress;Misc;Encyc of Herbal Med
 Cypress;Misc;PDR
 Cypress;Insomnia;Time Life
+Dan-shen (Chinese red sage);Insomnia;Natural Medicines
+Dan-shen (Chinese red sage);Insomnia;Encyc of Herbal Med
+Dan-shen (Chinese red sage);Sedative;PDR
+Dong Quai (Angelica sinensis);Insomnia;Medicine Plus
+Dong Quai (Angelica sinensis);Misc;Natural Medicines
+Dong Quai (Angelica sinensis);Misc;Encyc of Herbal Med
+Dong Quai (Angelica sinensis);Insomnia;PDR
+Dong Quai (Angelica sinensis);Misc;Time Life
+False Schisandra;Insomnia;PDR
+Fo-ti;Insomnia;Natural Medicines
+Fo-ti;Sedative;Encyc of Herbal Med
+Gardenia;Insomnia;Natural Medicines
+Gardenia;Insomnia;Encyc of Herbal Med
+Gardenia;Insomnia;Time Life
+Ginkgo biloba;Misc;Medicine Plus
+Ginkgo biloba;Misc;NIH NCCIH
+Ginkgo biloba;Insomnia;Natural Medicines
+Ginkgo biloba;Misc;Encyc of Herbal Med
+Ginkgo biloba;Anxiety;PDR
+Ginkgo biloba;Misc;Time Life
+Ginseng (Panax);Misc;Medicine Plus
+Ginseng (Panax);Misc;NIH NCCIH
+Ginseng (Panax);Insomnia;Natural Medicines
+Ginseng (Panax);Insomnia;Encyc of Herbal Med
+Ginseng (Panax);Insomnia;PDR
+Ginseng (Panax);Misc;Time Life
+Ginseng (Siberian);Insomnia;Medicine Plus
+Ginseng (Siberian);Insomnia;Natural Medicines
+Ginseng (Siberian);Misc;Time Life
+Gotu Kola;Anxiety;Natural Medicines
+Gotu Kola;Anxiety;Encyc of Herbal Med
+Gotu Kola;Misc;PDR
+Gotu Kola;Misc;Time Life
+Hawthorn;Misc;NIH NCCIH
+Hawthorn;Anxiety;Natural Medicines
+Hawthorn;Misc;Encyc of Herbal Med
+Hawthorn;Insomnia;Time Life
+Heather;Insomnia;Natural Medicines
+Heather;Misc;Encyc of Herbal Med
+Heather;Insomnia;PDR
+Hops;Insomnia;Medicine Plus
+Hops;Insomnia;Natural Medicines
+Hops;Insomnia;Encyc of Herbal Med
+Hops;Insomnia;PDR
+Hops;Insomnia;Time Life
+Ignatia;Insomnia;Time Life
+Jamaican Dogwood;Insomnia;Natural Medicines
+Jamaican Dogwood;Insomnia;Encyc of Herbal Med
+Jamaican Dogwood;Anxiety;PDR
+Jasmine;Misc;Natural Medicines
+Jasmine;Calming;Encyc of Herbal Med
+Jasmine;Misc;PDR
+Jasmine;Anxiety;Time Life
