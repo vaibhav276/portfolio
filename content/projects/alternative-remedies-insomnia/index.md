@@ -4,7 +4,7 @@ date: 2024-02-13T18:19:48+05:30
 draft: true
 tags: 
  - personal-project
-time-spent: 7h
+time-spent: 8h
 ---
 I was intrigued by this topic because few years back I read a book about sleep and was totally sold on the importance of sleep hygiene.
 
@@ -54,4 +54,4 @@ I planned on adding some interactivity to the visuals to provide more help and n
 
 ## Step 5: Coding the final Solution
 
-TODO
+{{< sketch >}}

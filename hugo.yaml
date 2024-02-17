@@ -3,10 +3,10 @@ languageCode: en-us
 # Working title for the website
 title: EyeCue
 theme: creative-portfolio
-markup:
-  goldmark:
-    renderer:
-      unsafe: true
+# markup:
+#   goldmark:
+#     renderer:
+#       unsafe: true
 
 # Creative portfolio theme specific settings
 # Enable comments by entering your Disqus shortname
