@@ -4,7 +4,7 @@ date: 2024-02-13T18:19:48+05:30
 draft: true
 tags: 
  - personal-project
-time-spent: 11h
+time-spent: 21h
 ---
 I was intrigued by this topic because few years back I read a book about sleep and was totally sold on the importance of sleep hygiene.
 
@@ -53,5 +53,8 @@ I planned on adding some interactivity to the visuals to provide more help and n
 ## Step 4: Identifying styles specific to this dataset
 
 ## Step 5: Coding the final Solution
+
+Some of the things I realized while implementation:
+* The number of citations for a remedy are whole numbers, so showing them as discrete shapes (I chose circles) will improve readability
 
 {{< sketch >}}
