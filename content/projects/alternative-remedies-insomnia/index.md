@@ -4,7 +4,7 @@ date: 2024-02-13T18:19:48+05:30
 draft: true
 tags: 
  - personal-project
-time-spent: 22h
+time-spent: 24h
 ---
 I was intrigued by this topic because few years back I read a book about sleep and was totally sold on the importance of sleep hygiene.
 
@@ -54,7 +54,8 @@ I planned on adding some interactivity to the visuals to provide more help and n
 
 ## Step 5: Coding the final Solution
 
-Some of the things I realized while implementation:
+Some of the things I realized and changed while implementation:
 * The number of citations for a remedy are whole numbers, so showing them as discrete shapes (I chose circles) will improve readability
+* There is too much movement if I try to redraw the remedies and stacked bar chart as the user hovers over the problem areas. So I decided to only change the opacity rather than showing and hiding the data.
 
 {{< sketch >}}

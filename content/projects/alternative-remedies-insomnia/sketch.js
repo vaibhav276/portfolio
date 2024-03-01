@@ -21,9 +21,15 @@ const svg = d3.create("svg")
   .attr("style", "max-width: 100%; height: auto; background-color: #F2EFE5");
 
 drawSources(sourcesDiv, sources);
-drawProblemAreaList(svg, mapPA2R, 'Misc');
-drawLinks(svg, mapPA2R, problemAreas, remedies, 'Misc');
-drawRemedies(svg, mapR2PA, remedies, problemAreas);
+
+let problemAreasContainer = svg.append("g").attr("transform", "translate(" + problemAreas.x + ", 45)")
+drawProblemAreaList(problemAreasContainer, mapPA2R);
+
+let linksContainer = svg.append("g").attr("transform", "translate(" + problemAreas.x + 50 + ", 45)")
+drawLinks(linksContainer, mapPA2R, problemAreas, remedies);
+
+let remediesContainer = svg.append("g").attr("transform", "translate(" + remedies.x + ", 45)")
+drawRemedies(remediesContainer, mapR2PA, remedies, problemAreas);
 
 sketch.append(sourcesDiv.node());
 sketch.append(svg.node());
@@ -105,11 +111,9 @@ function drawSources(container, sources) {
     .append("br");
 }
 
-function drawProblemAreaList(container, mapPA2R, selectedProblemArea) {
+function drawProblemAreaList(container, mapPA2R) {
   // problem areas list
-  container.append("g")
-    .attr("transform", "translate(" + problemAreas.x + ", 45)")
-    .attr("class", "mylabel")
+  container.attr("class", "mylabel")
     .selectAll("g")
     .data(mapPA2R)
     .join(
@@ -121,15 +125,28 @@ function drawProblemAreaList(container, mapPA2R, selectedProblemArea) {
           .attr("y", d => problemAreas.y(d.key))
           .attr("x", marginLeft)
           .attr("fill", d => problemAreas.color(d.key))
-          .attr("opacity", d => (d.key === selectedProblemArea ? 1.0 : 0.30))
-          .attr("rx", "10px");
+          .attr("rx", "10px")
+          .attr("opacity", 0.3)
+          .attr("id", d => "rect-" + d.key)
+          .on("mouseenter", e => {
+            updateByProblemArea(e.srcElement.__data__.key, true);
+          })
+          .on("mouseout", e => {
+            updateByProblemArea(e.srcElement.__data__.key, false);
+          });
 
         // Problem area text
         enter.append("text")
           .attr("y", d => problemAreas.y(d.key) + 35)
           .attr("x", marginLeft + 30)
           .attr("fill", "#ffffff")
-          .text(d => d.key);
+          .text(d => d.key)
+          .on("mouseenter", e => {
+            updateByProblemArea(e.srcElement.__data__.key, true);
+          })
+          .on("mouseout", e => {
+            updateByProblemArea(e.srcElement.__data__.key, false);
+          });
 
       },
       update => update,
@@ -137,21 +154,20 @@ function drawProblemAreaList(container, mapPA2R, selectedProblemArea) {
     );
 }
 
-function drawLinks(container, mapPA2R, problemAreas, remedies, selectedProblemArea) {
+function drawLinks(container, mapPA2R, problemAreas, remedies) {
 
   const points2 = d => d3.map(new Set(d.value), r => {
     return [{
-      x: marginLeft + 260,
+      x: 260,
       y: problemAreas.y(d.key) + 30
     }, {
-      x: 690,
+      x: 650,
       y: remedies.y(r) - 10
     }];
   });
 
-  container.append("g")
-    .attr("transform", "translate(" + problemAreas.x + ", 45)")
-    .attr("class", "mylabel")
+  //container.select("g").remove();
+  container.attr("class", "mylabel")
     .selectAll("path")
     .data(mapPA2R)
     .join(
@@ -170,8 +186,9 @@ function drawLinks(container, mapPA2R, problemAreas, remedies, selectedProblemAr
           )
           .attr("fill", "none")
           .attr("stroke", d => problemAreas.color(d.key))
-          .attr("stroke-width", d => (d.key === selectedProblemArea ? 3.0 : 1.0))
-          .attr("opacity", d => (d.key === selectedProblemArea ? 1.0 : 0.30));
+          .attr("stroke-width", 1.0)
+          .attr("opacity", 0.3)
+          .attr("id", d => "path-" + d.key);
         },
         update => update,
         exit => exit.remove()
@@ -180,9 +197,7 @@ function drawLinks(container, mapPA2R, problemAreas, remedies, selectedProblemAr
 
 function drawRemedies(container, mapR2PA, remedies, problemAreas) {
   // remedies list
-  container.append("g")
-    .attr("transform", "translate(" + remedies.x + ", 45)")
-    .attr("class", "mylabel")
+  container.attr("class", "mylabel")
     .selectAll("text")
     .data(mapR2PA, d => d.key)
     .join("text")
@@ -203,5 +218,19 @@ function drawRemedies(container, mapR2PA, remedies, problemAreas) {
     .attr("fill", d => problemAreas.color(d))
     .attr("cx", (_, i) => i * 30)
     .attr("cy", 0)
-    .attr("r", 10);
+    .attr("r", 10)
+    .attr("opacity", 0.3)
+    .attr("id", d => "circle-" + d);
+}
+
+function updateByProblemArea(name, selected) {
+  d3.selectAll("#rect-" + name)
+    .attr("opacity", selected ? 1.0 : 0.3);
+
+  d3.selectAll("#path-" + name)
+    .attr("stroke-width", selected ? 3.0 : 1.0)
+    .attr("opacity", selected ? 1.0 : 0.3);
+
+  d3.selectAll("#circle-" + name)
+    .attr("opacity", selected ? 1.0 : 0.3);
 }
