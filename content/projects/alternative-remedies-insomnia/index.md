@@ -1,7 +1,7 @@
 ---
 title: 'Alternative Remedies for Insomnia'
 date: 2024-02-13T18:19:48+05:30
-draft: true
+image: images/projects/alternative-remedies-insomnia/thumbnail.jpg
 tags: 
  - personal-project
 time-spent: 25h
@@ -57,3 +57,6 @@ Some of the things I realized and changed while implementation:
 * There is too much movement if I try to redraw the remedies and stacked bar chart as the user hovers over the problem areas. So I decided to only change the opacity rather than showing and hiding the data.
 
 {{< sketch >}}
+
+# Conclusion
+My intent was not to point out that the original source graphic did something wrong. It was to practice data visualization techniques on interesting data, and this happens to be one. I learned that there could be many solutions depending on how the problem is defined. And I hope I defined the problems in a way that helps the viewer.
