@@ -9,46 +9,35 @@ const marginLeft = 40;
 
 const data = await d3.dsv(";", "data/data.csv");
 
+// Sources DIV with checkboxes
 const sources = sourcesFromData(data);
-const {mapPA2R, problemAreas} = problemAreasFromData(data);
-const {mapR2PA, remedies} = remediesFromData(data);
+const sourcesDiv = d3.create("div")
+  .attr("width", width)
+  .attr("style", "padding: 20px; background-color: #F2EFE5");
+drawSources(sourcesDiv, sources);
+sketch.append(sourcesDiv.node());
 
-const sourcesDiv = d3.create("div");
 const svg = d3.create("svg")
   .attr("width", width)
   .attr("height", height)
   .attr("viewBox", [0, 0, width, height])
   .attr("style", "max-width: 100%; height: auto; background-color: #F2EFE5");
 
-drawSources(sourcesDiv, sources);
+// Initially all are selected, but on clicking, selectedSources will be updated
+let selectedSources = sources;
+drawLayout(svg, data, selectedSources);
 
-let problemAreasContainer = svg.append("g").attr("transform", "translate(" + problemAreas.x + ", 45)")
-drawProblemAreaList(problemAreasContainer, mapPA2R);
-
-let linksContainer = svg.append("g").attr("transform", "translate(" + problemAreas.x + 50 + ", 45)")
-drawLinks(linksContainer, mapPA2R, problemAreas, remedies);
-
-let remediesContainer = svg.append("g").attr("transform", "translate(" + remedies.x + ", 45)")
-drawRemedies(remediesContainer, mapR2PA, remedies, problemAreas);
-
-sketch.append(sourcesDiv.node());
 sketch.append(svg.node());
 
 function sourcesFromData(data) {
-  let sources = {
-    set: d3.sort(new Set(d3.map(data, d => d.source))),
-    x: 1200
-  }
-  sources.y = d3.scaleBand()
-    .domain(sources.set)
-    .range([0, height / 3]);
-
-  return sources;
+  return d3.sort(new Set(d3.map(data, d => d.source)));
 }
 
-function problemAreasFromData(data) {
+function problemAreasFromData(data, selectedSources) {
+  let filteredData = data.filter(r => selectedSources.includes(r.source));
+
   // Map from problem areas to remedies
-  let mapPA2R = d3.map(d3.rollup(data, D => D.length, d => d.problem_area, d => d.remedy), d => {
+  let mapPA2R = d3.map(d3.rollup(filteredData, D => D.length, d => d.problem_area, d => d.remedy), d => {
     return {
       key: d[0],
       value: d3.sort(d3.map(d[1], e => Array(e[1]).fill(e[0])).flat())
@@ -58,9 +47,11 @@ function problemAreasFromData(data) {
 
   let problemAreas = {
     set: d3.map(mapPA2R, d => d.key),
+    // Problem areas are hardcoded for colors so that the color coding does not change
+    // When list of problem areas change
     color: d3.scaleOrdinal()
-      .domain(d3.map(mapPA2R, d => d.key))
-      .range(["#F72798", "#F57D1F", "#85586F", "#9A031E", "#387ADF", "#50C4ED"]),
+      .domain(["Insomnia", "Misc", "Sedative", "Anxiety", "Calming", "Nervousness"])
+      .range(["#51829B", "#337357", "#85586F", "#9A031E", "#387ADF", "#50C4ED"]),
     x: 0,
     y: d3.scaleBand()
       .domain(d3.map(mapPA2R, d => d.key))
@@ -69,9 +60,11 @@ function problemAreasFromData(data) {
   return {mapPA2R: mapPA2R, problemAreas: problemAreas};
 }
 
-function remediesFromData(data) {
+function remediesFromData(data, selectedSources) {
+  let filteredData = data.filter(r => selectedSources.includes(r.source));
+
   // Map from remedies to problem areas
-  let mapR2PA = d3.map(d3.rollup(data, D => D.length, d => d.remedy, d => d.problem_area), d => {
+  let mapR2PA = d3.map(d3.rollup(filteredData, D => D.length, d => d.remedy, d => d.problem_area), d => {
     return {
       key: d[0],
       value: d3.sort(d3.map(d[1], e => Array(e[1]).fill(e[0])).flat())
@@ -95,7 +88,7 @@ function drawSources(container, sources) {
     .html("Sources")
     .select(function () { return this.parentNode })
     .selectAll("div")
-    .data(sources.set)
+    .data(sources)
     .join("div")
     .append("input")
     .attr("type", "checkbox")
@@ -103,17 +96,21 @@ function drawSources(container, sources) {
     .attr("name", d => d)
     .attr("value", d => d)
     .attr("checked", true)
-    .select(function () { return this.parentNode })
+    .select(function() { return this.parentNode })
     .append("label")
     .attr("for", d => d)
     .html(d => "&nbsp;" + d)
-    .select(function () { return this.parentNode })
-    .append("br");
+    .select(function() { return this.parentNode })
+    .append("br")
+    .select(function() { return this.parentNode })
+    .on("click", e => {
+      updateBySource(e.srcElement.__data__, e.srcElement.checked)
+    })
 }
 
-function drawProblemAreaList(container, mapPA2R) {
+function drawProblemAreaList(container, mapPA2R, problemAreas) {
   // problem areas list
-  container.attr("class", "mylabel")
+  container.attr("style", "font-size: 30px")
     .selectAll("g")
     .data(mapPA2R)
     .join(
@@ -158,7 +155,7 @@ function drawLinks(container, mapPA2R, problemAreas, remedies) {
 
   const points2 = d => d3.map(new Set(d.value), r => {
     return [{
-      x: 260,
+      x: 240,
       y: problemAreas.y(d.key) + 30
     }, {
       x: 650,
@@ -167,7 +164,7 @@ function drawLinks(container, mapPA2R, problemAreas, remedies) {
   });
 
   //container.select("g").remove();
-  container.attr("class", "mylabel")
+  container.attr("style", "font-size: 30px")
     .selectAll("path")
     .data(mapPA2R)
     .join(
@@ -197,7 +194,7 @@ function drawLinks(container, mapPA2R, problemAreas, remedies) {
 
 function drawRemedies(container, mapR2PA, remedies, problemAreas) {
   // remedies list
-  container.attr("class", "mylabel")
+  container.attr("style", "font-size: 30px")
     .selectAll("text")
     .data(mapR2PA, d => d.key)
     .join("text")
@@ -233,4 +230,31 @@ function updateByProblemArea(name, selected) {
 
   d3.selectAll("#circle-" + name)
     .attr("opacity", selected ? 1.0 : 0.3);
+}
+
+function updateBySource(name, selected) {
+  if (!selected && selectedSources.includes(name)) {
+    let index = selectedSources.indexOf(name); // We know index won't be -1
+    selectedSources.splice(index, 1);
+  }
+  else if (selected && !selectedSources.includes(name))
+    selectedSources.push(name);
+
+  svg.selectAll("g").remove();
+  drawLayout(svg, data, selectedSources);
+}
+
+function drawLayout(container, data, selectedSources) {
+  const { mapPA2R, problemAreas } = problemAreasFromData(data, selectedSources);
+  const { mapR2PA, remedies } = remediesFromData(data, selectedSources);
+
+  const layout = {
+    problemAreasContainer: container.append("g").attr("transform", "translate(" + problemAreas.x + ", 45)"),
+    linksContainer: container.append("g").attr("transform", "translate(" + problemAreas.x + 50 + ", 45)"),
+    remediesContainer: container.append("g").attr("transform", "translate(" + remedies.x + ", 45)")
+  }
+
+  drawProblemAreaList(layout.problemAreasContainer, mapPA2R, problemAreas);
+  drawLinks(layout.linksContainer, mapPA2R, problemAreas, remedies);
+  drawRemedies(layout.remediesContainer, mapR2PA, remedies, problemAreas);
 }
