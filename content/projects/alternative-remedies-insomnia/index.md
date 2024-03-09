@@ -4,6 +4,7 @@ date: 2024-02-13T18:19:48+05:30
 image: images/projects/alternative-remedies-insomnia/thumbnail.jpg
 tags: 
  - personal-project
+ - d3
 time-spent: 25h
 ---
 I was intrigued by this topic because few years back I read a book about sleep and was totally sold on the importance of sleep hygiene.

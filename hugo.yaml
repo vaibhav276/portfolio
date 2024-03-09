@@ -1,46 +1,20 @@
-baseURL: https://example.org/
+baseURL: https://vaibhav276.github.io/
 languageCode: en-us
-# Working title for the website
-title: EyeCue
-theme: creative-portfolio
-# markup:
-#   goldmark:
-#     renderer:
-#       unsafe: true
-
-# Creative portfolio theme specific settings
-# Enable comments by entering your Disqus shortname
-# disqusShortname: ""
-# Enable Google Analytics by entering your tracking code
-# googleAnalytics: ""
-params:
-  style: violet
-  description: My creative portfolio
-  copyright: '&copy;2024 Vaibhav Pujari'
-  # TODO: Work on this more after reading some data visualization theory
-  sidebarAbout: 
-    - I like simplifying data and ideas to people
-    - I have worked for 17 years as Software Engineer and Architect in data oriented companies and products, and found that efficiently conveying information to humans is at the heart of any successful system.
-    - With massive amounts of data collected every day, the need to draw intuition from all of it is ever more important.
-  email: 276vaibhav@gmail.com
-  navlinks:
+title: Portfolio
+theme: my-hugo-creative-portfolio-theme
+menu:
+  main:
     - name: Home
-      url: /home
-      home: true
-    - name: Projects
-      url: /projects
+      url: /
+      identifier: home
+      weight: 1
     - name: Blog
-      url: /blog
-  breadcrumbs: true  
-  # social:
-  #   facebook: full page or profile url in facebook
-  #   googleplus: full profile url in googleplus
-  #   email: email@example.com
-  #   twitter: full profile url in twitter
-  #   linkedin: full profile url in linkedin
-  #   stackoverflow: full profile url in stackoverflow
-  #   instagram: full profile url in instagram
-  #   github: full profile url in github
-  #   gitlab: full profile url in gitlab
-  #   youtube: full profile url in youtube
-  #   whatsapp: wa.me service link
+      url: /blog/
+      identifier: blog
+      weight: 2
+    - name: Projects
+      url: /projects/
+      identifier: projects
+      weight: 3
+params:
+  footer: '&copy; Vaibhav Pujari, 2012 -- {Year}'
