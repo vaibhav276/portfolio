@@ -1,5 +1,6 @@
 ---
 title: Home
+pagetype: article-page
 ---
 *Handcrafted visualizations for your data and processes*
 

@@ -6,6 +6,7 @@ tags:
  - personal-project
  - d3
 time-spent: 25h
+pagetype: article-page
 ---
 I was intrigued by this topic because few years back I read a book about sleep and was totally sold on the importance of sleep hygiene.
 

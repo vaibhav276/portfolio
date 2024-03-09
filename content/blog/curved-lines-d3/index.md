@@ -3,6 +3,7 @@ title: Drawing curved lines with D3
 date: 2024-03-02
 tags:
     - d3
+pagetype: article-page
 ---
 
 Say you have two points and you want to draw a curved line between them.
