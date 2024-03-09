@@ -1,7 +1,7 @@
 ---
 title: 'Alternative Remedies for Insomnia'
 date: 2024-02-13T18:19:48+05:30
-image: images/projects/alternative-remedies-insomnia/thumbnail.jpg
+image: alternative-remedies-insomnia/images/thumbnail.jpg
 tags: 
  - personal-project
  - d3
