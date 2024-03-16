@@ -11,11 +11,8 @@ const data = await d3.dsv(";", "data/data.csv");
 
 // Sources DIV with checkboxes
 const sources = sourcesFromData(data);
-const sourcesDiv = d3.create("div")
-  .attr("width", width)
-  .attr("style", "padding: 20px; background-color: #F2EFE5");
+const sourcesDiv = d3.select("#sources");
 drawSources(sourcesDiv, sources);
-sketch.append(sourcesDiv.node());
 
 const svg = d3.create("svg")
   .attr("width", width)
@@ -110,7 +107,7 @@ function drawSources(container, sources) {
 
 function drawProblemAreaList(container, mapPA2R, problemAreas) {
   // problem areas list
-  container.attr("style", "font-size: 30px")
+  container.attr("class", "mylabel")
     .selectAll("g")
     .data(mapPA2R)
     .join(
@@ -163,8 +160,7 @@ function drawLinks(container, mapPA2R, problemAreas, remedies) {
     }];
   });
 
-  //container.select("g").remove();
-  container.attr("style", "font-size: 30px")
+  container.attr("class", "mylabel")
     .selectAll("path")
     .data(mapPA2R)
     .join(
@@ -194,7 +190,7 @@ function drawLinks(container, mapPA2R, problemAreas, remedies) {
 
 function drawRemedies(container, mapR2PA, remedies, problemAreas) {
   // remedies list
-  container.attr("style", "font-size: 30px")
+  container.attr("class", "mylabel")
     .selectAll("text")
     .data(mapR2PA, d => d.key)
     .join("text")

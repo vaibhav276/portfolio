@@ -1,12 +1,8 @@
 ---
-title: 'Alternative Remedies for Insomnia'
+title: "Alternative remedies for Insomnia: Behind the scenes"
 date: 2024-02-13T18:19:48+05:30
-image: alternative-remedies-insomnia/images/thumbnail.jpg
-tags: 
- - personal-project
- - d3
-time-spent: 25h
 pagetype: article-page
+listitem: false
 ---
 I was intrigued by this topic because few years back I read a book about sleep and was totally sold on the importance of sleep hygiene.
 
@@ -57,8 +53,6 @@ I planned on adding some interactivity to the visuals to provide more help and n
 Some of the things I realized and changed while implementation:
 * The number of citations for a remedy are whole numbers, so showing them as discrete shapes (I chose circles) will improve readability
 * There is too much movement if I try to redraw the remedies and stacked bar chart as the user hovers over the problem areas. So I decided to only change the opacity rather than showing and hiding the data.
-
-{{< sketch >}}
 
 # Conclusion
 My intent was not to point out that the original source graphic did something wrong. It was to practice data visualization techniques on interesting data, and this happens to be one. I learned that there could be many solutions depending on how the problem is defined. And I hope I defined the problems in a way that helps the viewer.
