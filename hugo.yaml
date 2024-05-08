@@ -1,6 +1,6 @@
 baseURL: https://vaibhav276.github.io/
 languageCode: en-us
-title: Portfolio
+title: Vaibhav Pujari
 theme: my-hugo-creative-portfolio-theme
 menu:
   main:
@@ -8,13 +8,18 @@ menu:
       url: /
       identifier: home
       weight: 1
-    - name: Blog
-      url: /blog/
-      identifier: blog
-      weight: 2
+    # - name: Blog
+    #   url: /blog/
+    #   identifier: blog
+    #   weight: 2
     - name: Projects
       url: /projects/
       identifier: projects
       weight: 3
+    - name: Contact
+      url: /contact/
+      identifier: contact
+      weight: 4
 params:
   footer: '&copy; Vaibhav Pujari, 2012 -- {Year}'
+enableEmoji: true
