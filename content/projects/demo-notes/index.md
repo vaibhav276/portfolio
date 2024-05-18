@@ -7,6 +7,8 @@ tags:
 - javascript
 - nodejs
 - microservices
+- architecture
+- backend
 - serverless
 - rest-api
 - aws
