@@ -4,12 +4,22 @@ image: demo-bank/images/demo-bank-thumbnail.png
 pagetype: article-page
 draft: false
 tags:
+- java
+- spring-boot
+- rest-api
+- microservices
+- containers
+- backend
+- mysql
+- oauth
+- architecture
 - docker
 - kubernetes
 - personal-project
 ---
 
-# Introduction 
+![thumbnail](./images/demo-bank-thumbnail.png)
+
 This is an application I developed while doing a course on microservices architecture, hence the fancy name. The purpose of this project is to combine together and apply best practices applicable to a large system into a small dummy application for easier analysis and demonstration. I found that in real systems, many teams work on the application and there are often gaps in comprehensive documentation of how the whole system works. By applying the principles to a much smaller application, a single person can manage to study the entire system and experiment with many design patterns, which gives them the ability to architect and work on larger systems.
 
 # Business Context
@@ -98,4 +108,4 @@ To demonstrate how services can send events to an externally managed queue or pu
 For implementing both of the above, I used [Spring Cloud Function](https://spring.io/projects/spring-cloud-function) and [Spring Cloud Stream](https://spring.io/projects/spring-cloud-stream) projects, which make it super-easy to connect applications over asynchronous communication.
 
 # Source code and additional documentation
-Source code and more detailed documentation is available on my github repo: https://github.com/vaibhav276/demo-bank
+Source code and more detailed documentation is available on [Github repo](https://github.com/vaibhav276/demo-bank)
