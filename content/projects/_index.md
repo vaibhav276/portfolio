@@ -1,4 +1,6 @@
 ---
 title: Projects
-pagetype: full-page
+pagetype: article-page
 ---
+
+Here are some projects that I did outside of my day job.

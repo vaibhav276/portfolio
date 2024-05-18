@@ -27,3 +27,4 @@ menu:
 params:
   footer: '&copy; Vaibhav Pujari, 2012 -- {Year}'
 enableEmoji: true
+summaryLength: 20
