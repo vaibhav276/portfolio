@@ -2,8 +2,8 @@
 title: Contact
 pagetype: article-page
 ---
-## Linked-in
-For better or worse, I haven't been active on any social media platforms so far. But I do try to keep my professional info and contacts updated on linked-in.
+## LinkedIn
+For better or worse, I haven't been active on any social media platforms so far. But I do try to keep my professional info and contacts updated on linkedin.
 
 Profile link: https://www.linkedin.com/in/vaibhavpujari/
 
