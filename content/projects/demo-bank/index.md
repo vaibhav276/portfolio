@@ -33,33 +33,30 @@ As you see above, there are many users/personas that interact with the applicati
 
 # Business Services
 The core business domain was implemented in three services. These are the services the end users interact with.
-
 ## Accounts service
 Takes care of all customer bank accounts, along with customer information
-
 ## Loans service
 Takes care of all loans information
-
 ## Cards service
 Takes care of all cards information
 
 # Infrastructure Services
 As we would expect to see in any serious enterprise, the infrastructure concerns are taken care of by several separate services, which provide a lot of flexibility in extending and managing the application.
 
-## KeyCloak Service
+## Security - KeyCloak Service
 [KeyCloak](https://www.keycloak.org/) is an open source application that provides industry standard [OAuth 2.0](https://oauth.net/2/) and [OpenID Connect](https://openid.net/) based authentication and authorization. In demo-bank, it is deployed as a Identity Provider and Authentication server. It performs the following functions:
 * Lets security admins define users, client applications and roles that can access the business application
 * Issue JWT tokens to valid callers
 * Expose public keys and certificates to enable Gateway server to validate incoming API requests
 
-## Configuration Service
+## Centralized Configuration - Configuration Service
 The Configuration Service is based on [Spring Cloud Config](https://spring.io/projects/spring-cloud-config).
 
 All the configuration for the business and other infrastructure is maintained in a single service, which provides HTTP endpoints to fetch the configuration. It allows DevOps persona to validate and change-control all the application configuration in a centralized manner.
 
 Additionally, to make it easy to apply the configuration changes made in configuration server to all microservices automatically without much manual intervention, I integrated with [RabbitMQ](https://www.rabbitmq.com/), which used the "Bus Refresh" design pattern to relay config changes.
 
-## Eureka Server
+## Service discovery - Eureka Server
 The [Netflix Eureka Server](https://spring.io/projects/spring-cloud-netflix) is provided under Spring Cloud group of projects. It is an open source project that provides the ability for services to register themselves in a centralized repository, which can be accessed by clients (internal or external) to discover the IP address and port of these services. In a microservice architecture, we expect services to fail, self-heal and migrate to different hosts as a part of regular day to day operations. A discovery service like this is a critical component for everything to work.
 
 ## Observability Services
