@@ -22,6 +22,8 @@ This is a simple full stack application that lets user track their Todo items.
 ![screenshot](./images/app_screenshot.jpg)
 
 # Architecture
+![architecture](./images/demotodos_architecture.png)
+
 ## Database and stores
 The application uses [Apache Cassandra](https://cassandra.apache.org/) noSQL database to store Todo items with following properties:
 * `user_id` (Primary key)
@@ -38,6 +40,9 @@ REST APIs are implemented in [Java](https://www.java.com/) using [Spring Boot](h
 
 ## API Documentation
 API is documented using [Open API](https://www.openapis.org/what-is-openapi) specs.
+
+## Security
+It uses [KeyCloak](https://www.keycloak.org/) as IAM server.
 
 ## Frontend
 The frontend is implemented in [Typescript](https://www.typescriptlang.org/) using [Angular](https://angular.io/).
